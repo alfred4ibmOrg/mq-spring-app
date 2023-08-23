@@ -36,6 +36,8 @@ public class MQService {
 		} catch (JmsException ex) {
 			throw new AppException("MQAPP001", "Error sending message to the queue." + queueName, ex);
 		}
+	}
+
         public void setQueueName(String newQueueName) {
              this.queueName = newQueueName;
              return;
@@ -44,7 +46,6 @@ public class MQService {
         public String getQueueName() {
              return this.queueName;
                }
-	}
 	
 	public String receiveMessage() {
 	    try{
