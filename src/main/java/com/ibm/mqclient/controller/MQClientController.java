@@ -33,7 +33,7 @@ public class MQClientController {
 	
 	@GetMapping("/api/send-hello-world")
 	@ApiOperation(value = "Put a hello world message on the MQ queue.", notes = "This api puts a hello world text message on the MQ queue.")
-	@ApiResponses(value = {@ApiResponse(code = 200, message = "SUCCESSfully put message on queue."), @ApiResponse(code = 500, message = "Error putting message on queue.")})	
+	@ApiResponses(value = {@ApiResponse(code = 200, message = "WE ARE SUCCESSfully put message on queue."), @ApiResponse(code = 500, message = "Error putting message on queue.")})	
 	ResponseData send() {
 		String dataSentToQueue = mqService.sendHelloWorld();
 		ResponseData responseData = new ResponseData("OK", "SUCCESSfully sent record to MQ", dataSentToQueue);
