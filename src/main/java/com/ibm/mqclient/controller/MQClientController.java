@@ -36,7 +36,7 @@ public class MQClientController {
 	@ApiResponses(value = {@ApiResponse(code = 200, message = "WE ARE SUCCESSfully put message on queue."), @ApiResponse(code = 500, message = "Error putting message on queue.")})	
 	ResponseData send() {
 		String dataSentToQueue = mqService.sendHelloWorld();
-		ResponseData responseData = new ResponseData("OK !!!!!!!!!!", "SUCCESSfully sent record to MQ", dataSentToQueue);
+		ResponseData responseData = new ResponseData("OK ???!!!!!!!", "SUCCESSfully sent record to MQ", dataSentToQueue);
 		return responseData;
 	}
 
