@@ -31,7 +31,7 @@ public class MQService {
 		try {
 			String helloWorld = "Hello World!";
 			jmsTemplate.convertAndSend(queueName, helloWorld);
-			LOG.debug("SUCCESSfully Sent message: {} to the queue" + queueName, helloWorld);
+			LOG.debug("MBBBBBBB   SUCCESSfully Sent message: {} to the queue" + queueName, helloWorld);
 			return helloWorld;
 		} catch (JmsException ex) {
 			throw new AppException("MQAPP001", "Error sending message to the queue." + queueName, ex);
