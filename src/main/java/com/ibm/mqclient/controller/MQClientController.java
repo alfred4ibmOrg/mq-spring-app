@@ -66,7 +66,7 @@ public class MQClientController {
         ResponseData sendHelloToQueueName(@RequestParam String queueName) {
                  mqService.setQueueName(queueName);
                  String dataSentToQueue = mqService.sendHelloWorld();
-                 final String text = "MBB Maybank -- SUCCESSfully sent message to queue " + mqService.getQueueName();
+                 final String text = "Master MBB Maybank -- SUCCESSfully sent message to queue " + mqService.getQueueName();
                  ResponseData responseData = new ResponseData("OK", text, dataSentToQueue);
                  return responseData;
         }
