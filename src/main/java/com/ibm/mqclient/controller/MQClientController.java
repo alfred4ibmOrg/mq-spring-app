@@ -33,19 +33,19 @@ public class MQClientController {
 	
 	@GetMapping("/api/send-hello-world")
 	@ApiOperation(value = "Put a hello world message on the MQ queue.", notes = "This api puts a hello world text message on the MQ queue.")
-	@ApiResponses(value = {@ApiResponse(code = 200, message = "SUCCESSfully put message on queue."), @ApiResponse(code = 500, message = "Error putting message on queue.")})	
+	@ApiResponses(value = {@ApiResponse(code = 200, message = "successfully put message on queue."), @ApiResponse(code = 500, message = "Error putting message on queue.")})	
 	ResponseData send() {
 		String dataSentToQueue = mqService.sendHelloWorld();
-		ResponseData responseData = new ResponseData("OK", "MBB --- SUCCESSfully sent record to MQ", dataSentToQueue);
+		ResponseData responseData = new ResponseData("OK", "successfully sent record to MQ", dataSentToQueue);
 		return responseData;
 	}
 
 	@GetMapping("/api/recv")
 	@ApiOperation(value = "Receive a message from the MQ queue.", notes = "This api receives the message at the top of the MQ queue.")	
-	@ApiResponses(value = {@ApiResponse(code = 200, message = "SUCCESSfully received message from the queue."), @ApiResponse(code = 500, message = "Error getting message from the queue.")})	
+	@ApiResponses(value = {@ApiResponse(code = 200, message = "successfully received message from the queue."), @ApiResponse(code = 500, message = "Error getting message from the queue.")})	
 	ResponseData recv() {
 		String dataReceivedFromQueue = mqService.receiveMessage();
-		ResponseData responseData = new ResponseData("OK", "SUCCESSfully received record from MQ",
+		ResponseData responseData = new ResponseData("OK", "successfully received record from MQ",
 				dataReceivedFromQueue);
 		return responseData;
 
@@ -66,7 +66,7 @@ public class MQClientController {
         ResponseData sendHelloToQueueName(@RequestParam String queueName) {
                  mqService.setQueueName(queueName);
                  String dataSentToQueue = mqService.sendHelloWorld();
-                 final String text = "SUCCESSfully sent message to queue " + mqService.getQueueName();
+                 final String text = "MBB Maybank -- SUCCESSfully sent message to queue " + mqService.getQueueName();
                  ResponseData responseData = new ResponseData("OK", text, dataSentToQueue);
                  return responseData;
         }
