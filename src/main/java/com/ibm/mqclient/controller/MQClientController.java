@@ -33,19 +33,19 @@ public class MQClientController {
 	
 	@GetMapping("/api/send-hello-world")
 	@ApiOperation(value = "Put a hello world message on the MQ queue.", notes = "This api puts a hello world text message on the MQ queue.")
-	@ApiResponses(value = {@ApiResponse(code = 200, message = "WE ARE SUCCESSfully put message on queue."), @ApiResponse(code = 500, message = "Error putting message on queue.")})	
+	@ApiResponses(value = {@ApiResponse(code = 200, message = "successfully put message on queue."), @ApiResponse(code = 500, message = "Error putting message on queue.")})	
 	ResponseData send() {
 		String dataSentToQueue = mqService.sendHelloWorld();
-		ResponseData responseData = new ResponseData("OK ???!!!!!!!", "MBB123 SUCCESSfully sent record to MQ", dataSentToQueue);
+		ResponseData responseData = new ResponseData("OK", "successfully sent record to MQ", dataSentToQueue);
 		return responseData;
 	}
 
 	@GetMapping("/api/recv")
 	@ApiOperation(value = "Receive a message from the MQ queue.", notes = "This api receives the message at the top of the MQ queue.")	
-	@ApiResponses(value = {@ApiResponse(code = 200, message = "SUCCESSfully received message from the queue."), @ApiResponse(code = 500, message = "Error getting message from the queue.")})	
+	@ApiResponses(value = {@ApiResponse(code = 200, message = "successfully received message from the queue."), @ApiResponse(code = 500, message = "Error getting message from the queue.")})	
 	ResponseData recv() {
 		String dataReceivedFromQueue = mqService.receiveMessage();
-		ResponseData responseData = new ResponseData("OK", "SUCCESSfully received record from MQ",
+		ResponseData responseData = new ResponseData("OK", "successfully received record from MQ",
 				dataReceivedFromQueue);
 		return responseData;
 
@@ -62,11 +62,11 @@ public class MQClientController {
 
         @GetMapping(value = "/api/send-to-queue")
         @ApiOperation(value = "Put a 'Hello World!' message on the MQ queue specified as parameter.", notes = "This api puts a hello world text message on the MQ queue specified as parameter.")
-        @ApiResponses(value = {@ApiResponse(code = 200, message = "SUCCESSFULLY put message on the specified queue."), @ApiResponse(code = 500, message = "Error putting message on the specified queue.")})
+        @ApiResponses(value = {@ApiResponse(code = 200, message = "successfully put message on the specified queue."), @ApiResponse(code = 500, message = "Error putting message on the specified queue.")})
         ResponseData sendHelloToQueueName(@RequestParam String queueName) {
                  mqService.setQueueName(queueName);
                  String dataSentToQueue = mqService.sendHelloWorld();
-                 final String text = "SUCCESSfully sent message to queue " + mqService.getQueueName();
+                 final String text = "MBB123 -- SUCCESSfully sent message to queue " + mqService.getQueueName();
                  ResponseData responseData = new ResponseData("OK", text, dataSentToQueue);
                  return responseData;
         }
